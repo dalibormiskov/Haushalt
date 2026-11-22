@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WtycLxN+pWyG1oA4j7VqlKwLWdVdiniXTrGUJd6wCBc=' https://accounts.google.com/gsi/client; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; img-src 'self' data:; font-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-KKF8LjFqCeKBLzESMRTDUg/EUOtzZo5QV3lZVDx9r2E=' https://accounts.google.com/gsi/client; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; img-src 'self' data:; font-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0e16">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -249,6 +249,24 @@ body.locked .app,body.locked #sab{display:none!important}
 @media(display-mode:standalone){#sab{display:block;position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top);background:#0a0e16;z-index:60}}
 .gd .kv b{text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:62%}
 .note-box{font-size:12.5px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0 14px}
+.mdl.wide{max-width:1080px}
+.imp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.imp-row{display:grid;grid-template-columns:22px 88px minmax(0,1fr) 112px 240px;gap:10px;align-items:center;padding:9px 4px;border-bottom:1px solid var(--line)}
+.imp-row.is-dup{opacity:.55}.imp-row input[type=checkbox]{width:18px;height:18px;margin:0}
+.imp-t{min-width:0}.imp-t b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.imp-t span.tx{display:block;font-size:12px;color:var(--faint);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.imp-a{text-align:right;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}.imp-a.pos{color:#10b981}[data-theme=dark] .imp-a.pos{color:var(--inc)}
+.imp-d{font-variant-numeric:tabular-nums;white-space:nowrap}
+.imp-row select{width:100%}.imp-row select.need{border-color:rgba(251,191,36,.8);box-shadow:0 0 0 3px rgba(251,191,36,.12)}
+.bdg{display:inline-block;font-size:10.5px;border-radius:999px;padding:1px 7px;margin:3px 4px 0 0;border:1px solid var(--line);color:var(--muted)}
+.bdg.rule,.bdg.you{color:var(--acc);border-color:rgba(124,140,255,.5)}.bdg.auto{color:var(--sav);border-color:rgba(167,139,250,.45)}.bdg.dup{color:var(--trd);border-color:rgba(251,191,36,.5)}
+.imp-more{text-align:center;padding:14px}
+.qa-bank{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:0 0 12px;padding:12px;border:1px dashed var(--line);border-radius:12px;background:var(--bg2)}
+.qab-h{width:100%;font-size:12.5px;font-weight:600}.qab{display:flex;align-items:center;gap:8px;font-size:12.5px}.qab select{max-width:210px;padding:5px 26px 5px 8px;font-size:12.5px}
+.imp-t .bdg:not(.dup):not(.rule):not(.you):not(.auto){color:var(--faint)}
+table.mini{font-size:12px}table.mini td,table.mini th{padding:4px 8px;white-space:nowrap;text-transform:none;letter-spacing:0}
+.rt input,.rt select{width:100%;padding:6px 9px;background-color:transparent;border-color:transparent}.rt input:hover,.rt select:hover{border-color:var(--line)}.rt input:focus,.rt select:focus{background-color:var(--bg2)}
+.rt td:first-child{width:42%}.rt td.act{width:1%}
+@media(max-width:700px){.imp-row{grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:"c t a" "c d d" "s s s";row-gap:6px}.imp-row>input{grid-area:c}.imp-t{grid-area:t}.imp-a{grid-area:a}.imp-d{grid-area:d;font-size:12px;color:var(--muted)}.imp-row select{grid-area:s}.rt input,.rt select{border-color:var(--line)}}
 @media(max-width:1150px){.row2,.row11{grid-template-columns:1fr}}
 @media(max-width:820px){.fx{display:none}.fbar.open .fx{display:flex;flex-wrap:wrap;gap:10px 12px;width:100%;align-items:center}.fxt{display:inline-flex!important}.fbar .period{width:100%;margin-left:0}.app{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:50;height:auto;flex-direction:row;overflow-x:auto;padding:calc(10px + env(safe-area-inset-top)) 10px 10px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 10px 0 0}.brand div:last-child,.spacer,#side-status{display:none}.nav span{display:none}main{padding:18px 16px 60px}.period{margin-left:0}}
 </style>
@@ -270,6 +288,7 @@ body.locked .app,body.locked #sab{display:none!important}
 <div id="lock"></div>
 <div id="toasts"></div>
 <input type="file" id="file" accept=".json,application/json" hidden>
+<input type="file" id="csvfile" accept=".csv,text/csv,text/plain,.txt" hidden>
 <script>
 (()=>{
 'use strict';
@@ -335,26 +354,28 @@ const DEFAULT_CATS=[
 ['ETF','Sparen','Familie','savings'],['Altersvorsorgedepot Ich','Sparen','Ich','savings'],['Altersvorsorgedepot Partner','Sparen','Partner','savings'],
 ['Trading Gewinne','Trading','Ich','tradingGain'],['Trading Verluste','Trading','Ich','tradingLoss']];
 const SYNC0=()=>({on:false,fileId:null,last:null,email:null,dirty:false});
-function freshState(){return{v:2,categories:DEFAULT_CATS.map(([name,group,person,type])=>({id:uid(),name,group,person,type})),entries:[],del:{},wipe:0,meta:{created:Date.now(),lastBackup:null,pristine:true},sync:SYNC0(),ui:{theme:'dark',view:'dashboard',filter:null}}}
-function migrate(s){s.meta=s.meta||{};s.ui=s.ui||{};s.del=s.del||{};s.sync=Object.assign(SYNC0(),s.sync||{});if(s.meta.pristine===undefined)s.meta.pristine=!s.entries.some(e=>!e.demo);return s}
+function freshState(){return{v:2,categories:DEFAULT_CATS.map(([name,group,person,type])=>({id:uid(),name,group,person,type})),entries:[],rules:[],del:{},wipe:0,meta:{created:Date.now(),lastBackup:null,pristine:true},sync:SYNC0(),ui:{theme:'dark',view:'dashboard',filter:null}}}
+function migrate(s){s.meta=s.meta||{};s.ui=s.ui||{};s.del=s.del||{};s.rules=Array.isArray(s.rules)?s.rules:[];s.sync=Object.assign(SYNC0(),s.sync||{});if(s.meta.pristine===undefined)s.meta.pristine=!s.entries.some(e=>!e.demo);return s}
 const ID_RE=/^[A-Za-z0-9_-]{1,64}$/,DATE_RE=/^\d{4}-\d{2}-\d{2}$/;
 const cleanStr=(v,max)=>String(v==null?'':v).slice(0,max);
+const normTxt=v=>String(v==null?'':v).toLowerCase().replace(/\s+/g,' ').trim();
 // everything read from this device's storage, a backup file or Google Drive passes through here: invalid items are dropped, text is limited
 function sanitizeDoc(d){d=d&&typeof d==='object'?d:{};const cats=[],ids=new Set(),ents=[],eids=new Set(),del={};
  (Array.isArray(d.categories)?d.categories:[]).forEach(c=>{if(!c||!ID_RE.test(c.id)||ids.has(c.id)||!TYPES[c.type])return;ids.add(c.id);const o={id:c.id,name:cleanStr(c.name,80)||'?',group:cleanStr(c.group,60)||'?',person:cleanStr(c.person,60)||'?',type:c.type};if(c.demo)o.demo=true;if(Number.isFinite(c.u))o.u=c.u;cats.push(o)});
- (Array.isArray(d.entries)?d.entries:[]).forEach(e=>{if(!e||!ID_RE.test(e.id)||eids.has(e.id)||!DATE_RE.test(e.date)||!ID_RE.test(e.catId)||!Number.isFinite(+e.amount))return;eids.add(e.id);const o={id:e.id,date:e.date,catId:e.catId,amount:Math.round(+e.amount*100)/100,note:cleanStr(e.note,300)};if(e.demo)o.demo=true;if(Number.isFinite(e.u))o.u=e.u;ents.push(o)});
+ (Array.isArray(d.entries)?d.entries:[]).forEach(e=>{if(!e||!ID_RE.test(e.id)||eids.has(e.id)||!DATE_RE.test(e.date)||!ID_RE.test(e.catId)||!Number.isFinite(+e.amount))return;eids.add(e.id);const o={id:e.id,date:e.date,catId:e.catId,amount:Math.round(+e.amount*100)/100,note:cleanStr(e.note,300)};if(typeof e.imp==='string'&&/^[a-z0-9]{4,24}$/.test(e.imp))o.imp=e.imp;if(e.demo)o.demo=true;if(Number.isFinite(e.u))o.u=e.u;ents.push(o)});
  if(d.del&&typeof d.del==='object')Object.entries(d.del).forEach(([k,v])=>{if(ID_RE.test(k)&&Number.isFinite(v))del[k]=v});
- return{categories:cats,entries:ents,del,wipe:Number.isFinite(d.wipe)?d.wipe:0}}
+ const rules=[],rids=new Set();(Array.isArray(d.rules)?d.rules:[]).forEach(r=>{if(!r||!ID_RE.test(r.id)||rids.has(r.id))return;const m=normTxt(cleanStr(r.match,60));if(m.length<2||!(r.cat==='_skip'||ID_RE.test(r.cat)))return;rids.add(r.id);const o={id:r.id,match:m,cat:r.cat};if(Number.isFinite(r.u))o.u=r.u;rules.push(o)});
+ return{categories:cats,entries:ents,rules,del,wipe:Number.isFinite(d.wipe)?d.wipe:0}}
 function load(){let raw=null;try{raw=localStorage.getItem(LS);if(raw){const s=JSON.parse(raw);if(s&&Array.isArray(s.categories)&&Array.isArray(s.entries))return Object.assign(migrate(s),sanitizeDoc(s))}}catch(e){}
  if(raw){try{localStorage.setItem(LS+'.damaged-'+Date.now(),raw)}catch(e){}}return freshState()}
 let S=load(),storageOK=true,HASH=new Map(),REV=0;
 // every change is detected here: changed items get a timestamp (u), removed items a tombstone (del) – that's what makes multi-device merging safe
 const hashOf=x=>{const {u,...r}=x;return JSON.stringify(r)};
-function rebuildHash(){HASH=new Map();S.categories.forEach(c=>{if(!c.demo)HASH.set('c:'+c.id,hashOf(c))});S.entries.forEach(e=>{if(!e.demo)HASH.set('e:'+e.id,hashOf(e))})}
+function rebuildHash(){HASH=new Map();S.categories.forEach(c=>{if(!c.demo)HASH.set('c:'+c.id,hashOf(c))});S.entries.forEach(e=>{if(!e.demo)HASH.set('e:'+e.id,hashOf(e))});S.rules.forEach(r=>HASH.set('r:'+r.id,hashOf(r)))}
 function trackChanges(){const used=new Set();S.entries.forEach(e=>{if(!e.demo)used.add(e.catId)});S.categories.forEach(c=>{if(c.demo&&used.has(c.id))delete c.demo});
  const now=Date.now(),seen=new Set();let ch=false;
  const scan=(k,arr)=>arr.forEach(x=>{if(x.demo)return;const key=k+':'+x.id;seen.add(key);const h=hashOf(x);if(HASH.get(key)!==h){x.u=now;HASH.set(key,h);ch=true}});
- scan('c',S.categories);scan('e',S.entries);
+ scan('c',S.categories);scan('e',S.entries);scan('r',S.rules);
  for(const key of [...HASH.keys()])if(!seen.has(key)){S.del[key.slice(2)]=now;HASH.delete(key);ch=true}
  if(ch){REV++;S.meta.pristine=false;S.sync.dirty=true}return ch}
 function write(){try{localStorage.setItem(LS,JSON.stringify(S));storageOK=true}catch(e){storageOK=false;toast('Could not save in this browser – please export a backup','err')}}
@@ -486,8 +507,8 @@ const rgba=(hex,a)=>{const n=parseInt(hex.slice(1),16);return `rgba(${n>>16&255}
 
 /* ---------- UI helpers ---------- */
 function toast(msg,kind='',action){const t=document.createElement('div');t.className='toast '+kind;t.innerHTML=`<span>${esc(msg)}</span>${action?`<button>${esc(action.label)}</button>`:''}`;$('#toasts').appendChild(t);if(action)t.querySelector('button').onclick=()=>{action.fn();t.remove()};setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),300)},action?7000:2600)}
-function modal(title,body,btns,onMount){const ov=document.createElement('div');ov.className='ov';
- ov.innerHTML=`<div class="mdl"><div class="mh"><h3>${esc(title)}</h3><button class="ib" data-close>✕</button></div><div class="mb">${body}</div><div class="mf">${btns.map((b,i)=>`<button class="btn ${b.cls||''}" data-bi="${i}">${esc(b.label)}</button>`).join('')}</div></div>`;
+function modal(title,body,btns,onMount,opts){const ov=document.createElement('div');ov.className='ov';
+ ov.innerHTML=`<div class="mdl${opts&&opts.wide?' wide':''}"><div class="mh"><h3>${esc(title)}</h3><button class="ib" data-close>✕</button></div><div class="mb">${body}</div><div class="mf">${btns.map((b,i)=>`<button class="btn ${b.cls||''}" data-bi="${i}">${esc(b.label)}</button>`).join('')}</div></div>`;
  document.body.appendChild(ov);const close=()=>{ov.remove();if(SY.pendingRender)setTimeout(softRender,60)};
  ov.addEventListener('mousedown',e=>{if(e.target===ov)close()});
  ov.addEventListener('click',e=>{if(e.target.closest('[data-close]'))return close();const b=e.target.closest('[data-bi]');if(b){const f=btns[+b.dataset.bi].fn;const r=f?f(ov):undefined;if(r!==false)close()}});
@@ -554,7 +575,7 @@ function openPop(btn,what){if(POP&&POP.what===what)return closePop();closePop();
 function closePop(){if(!POP)return;POP.el.remove();POP=null;if(POPDIRTY){POPDIRTY=false;persistUI();render()}}
 
 /* ---------- views: overview ---------- */
-function hero(){return `<div class="card hero"><div class="logo">${ic('home')}</div><h2>Your household finances, crystal clear.</h2><p>Add your first income or expense — or load 24 months of demo data to explore every chart and filter. The demo can be removed with one click.</p><div class="hero-b"><button class="btn pri" data-act="nav" data-view="entries">Add first entry</button><button class="btn" data-act="demo">Load demo data</button></div></div>`}
+function hero(){return `<div class="card hero"><div class="logo">${ic('home')}</div><h2>Your household finances, crystal clear.</h2><p>Add your first income or expense — or load 24 months of demo data to explore every chart and filter. The demo can be removed with one click.</p><div class="hero-b"><button class="btn pri" data-act="nav" data-view="entries">Add first entry</button><button class="btn" data-act="bankimport">🏦 Import bank CSV</button><button class="btn" data-act="demo">Load demo data</button></div></div>`}
 function banner(){const real=S.entries.filter(e=>!e.demo).length;const lb=S.meta.lastBackup;if(!real||(lb&&Date.now()-lb<14*864e5))return'';return `<div class="banner"><span>💾 ${lb?'Your last backup is more than 2 weeks old.':'You haven’t exported a backup yet.'} Your data lives only in this browser — export a backup file regularly.</span><button class="btn" data-act="export">Export backup</button></div>`}
 function demoBanner(){return S.entries.some(e=>e.demo)?`<div class="banner" style="border-color:rgba(124,140,255,.4);background:rgba(124,140,255,.08)"><span>You're looking at <b>demo data</b>. Explore freely — remove it before entering your real numbers.</span><button class="btn" data-act="undemo">Remove demo data</button></div>`:''}
 function delta(cur,prev,goodUp,pp){if(!prev&&prev!==0||prev===null)return'<span class="delta neu">–</span>';if(pp){const d=cur-prev;if(Math.abs(d)<.05)return'<span class="delta neu">±0 pp</span>';return `<span class="delta ${(d>0)===goodUp?'good':'bad'}">${d>0?'▲':'▼'} ${nf1.format(Math.abs(d))} pp</span>`}
@@ -663,7 +684,7 @@ function drawYoY(ys){
 /* ---------- views: entries ---------- */
 function vEntries(){
  const V=$('#view');ELIMIT=200;
- V.innerHTML=`<div class="card"><div class="ch"><div><h3>New entry</h3><div class="hint">Pick date, category and amount — group, person and type are filled in automatically. Press Enter to save.</div></div></div>
+ V.innerHTML=`<div class="card"><div class="ch"><div><h3>New entry</h3><div class="hint">Pick date, category and amount — group, person and type are filled in automatically. Press Enter to save.</div></div><button class="btn" data-act="bankimport">🏦 Import bank CSV</button></div>
  <div class="qa-grid"><label>Date<input type="date" id="qa-date" value="${QA.date}"></label><label class="grow">Category<select id="qa-cat" data-ch="qacat">${catOptions(QA.cat)}</select></label><label>Amount (€)<input id="qa-amt" inputmode="decimal" placeholder="0,00" autocomplete="off"></label><label class="grow">Note<input id="qa-note" placeholder="optional" autocomplete="off"></label><button class="btn pri" data-act="add">Add entry</button></div>
  <div class="qa-meta" id="qa-meta"></div></div>
  ${S.entries.length?`<div class="card mt"><div class="etool"><input id="search" data-in="search" placeholder="Search category, group, person, note, amount…" value="${esc(SEARCH)}"><button class="btn" data-act="copymonth">${ic('cal')} Copy a month</button></div><div class="tscroll" id="etable"></div></div>`:''}`;
@@ -715,8 +736,10 @@ function vCats(){
  <div class="qa-grid"><label class="grow">Category name<input id="nc-name" placeholder="e.g. Schwimmen Kind 1"></label><label>Group<input id="nc-group" list="dl-g" placeholder="e.g. Kinder"></label><label>Person<input id="nc-person" list="dl-p" placeholder="e.g. Kind 1"></label><label>Type<select id="nc-type">${typeOpts('expense')}</select></label><button class="btn pri" data-act="addcat">Add category</button></div></div>
  <datalist id="dl-g">${groupsList().map(g=>`<option value="${esc(g)}">`).join('')}</datalist><datalist id="dl-p">${personsList().map(p=>`<option value="${esc(p)}">`).join('')}</datalist>
  <div class="grid row11 mt">${groupsList().map(g=>{const cs=S.categories.filter(c=>c.group===g);return `<div class="card"><div class="ch"><h3><i class="dot" style="background:${gColor(g)}"></i>${esc(g)}<span class="tag">${cs.length}</span></h3><button class="link" data-act="rengroup" data-g="${esc(g)}">Rename group</button></div>
- <table class="ct"><thead><tr><th>Category</th><th>Group</th><th>Person</th><th>Type</th><th class="r">Entries</th><th></th></tr></thead><tbody>${cs.map(c=>`<tr><td><input data-ch="cat" data-id="${c.id}" data-f="name" value="${esc(c.name)}"></td><td><input data-ch="cat" data-id="${c.id}" data-f="group" list="dl-g" value="${esc(c.group)}"></td><td><input data-ch="cat" data-id="${c.id}" data-f="person" list="dl-p" value="${esc(c.person)}"></td><td><select data-ch="cat" data-id="${c.id}" data-f="type">${typeOpts(c.type)}</select></td><td class="r num mut">${cnt[c.id]||0}</td><td class="act"><button class="ib" title="Delete" data-act="delcat" data-id="${c.id}">${ic('trash')}</button></td></tr>`).join('')}</tbody></table></div>`}).join('')}</div>`;
+ <table class="ct"><thead><tr><th>Category</th><th>Group</th><th>Person</th><th>Type</th><th class="r">Entries</th><th></th></tr></thead><tbody>${cs.map(c=>`<tr><td><input data-ch="cat" data-id="${c.id}" data-f="name" value="${esc(c.name)}"></td><td><input data-ch="cat" data-id="${c.id}" data-f="group" list="dl-g" value="${esc(c.group)}"></td><td><input data-ch="cat" data-id="${c.id}" data-f="person" list="dl-p" value="${esc(c.person)}"></td><td><select data-ch="cat" data-id="${c.id}" data-f="type">${typeOpts(c.type)}</select></td><td class="r num mut">${cnt[c.id]||0}</td><td class="act"><button class="ib" title="Delete" data-act="delcat" data-id="${c.id}">${ic('trash')}</button></td></tr>`).join('')}</tbody></table></div>`}).join('')}</div>${rulesCard()}`;
 }
+function rulesCard(){const rs=S.rules.slice().sort((a,b)=>a.match<b.match?-1:1);
+ return `<div class="card mt"><div class="ch"><div><h3>🏦 Bank import rules</h3><div class="hint">If a bank transaction's text contains this, it gets this category automatically. Rules are created when you correct a category during an import.</div></div></div>${rs.length?`<div class="tscroll"><table class="rt"><thead><tr><th>Text contains</th><th>Category</th><th></th></tr></thead><tbody>${rs.map(r=>`<tr><td><input data-ch="rule" data-id="${r.id}" data-f="match" value="${esc(r.match)}"></td><td><select data-ch="rule" data-id="${r.id}" data-f="cat"><option value="_skip" ${r.cat==='_skip'?'selected':''}>Skip (own transfer etc.)</option>${catOptions(r.cat,false)}</select></td><td class="act"><button class="ib" title="Delete rule" data-act="delrule" data-id="${r.id}">${ic('trash')}</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No rules yet.</div>'}</div>`}
 function addCat(){const name=$('#nc-name').value.trim(),group=$('#nc-group').value.trim(),person=$('#nc-person').value.trim()||'Familie',type=$('#nc-type').value;
  if(!name||!group)return toast('Name and group are required','err');if(S.categories.some(c=>c.name.toLowerCase()===name.toLowerCase()))return toast('That category already exists','err');
  S.categories.push({id:uid(),name,group,person,type});save();toast(`“${name}” added to ${group}`,'ok');render()}
@@ -731,19 +754,20 @@ function vData(){const real=S.entries.filter(e=>!e.demo),demo=S.entries.length-r
  <div class="card"><h3>💾 Backup</h3><p>${S.sync.on?'Your data is stored on this device and in your Google Drive (Google also keeps older versions of the file). A backup file is an extra safety net.':'Your data is stored in this browser on this device. Export a backup file regularly (e.g. into iCloud Drive) — it’s your safety net and lets you move to another device.'}</p>
   <div class="kv"><span>Entries</span><b>${real.length}${demo?` (+${demo} demo)`:''}</b></div><div class="kv"><span>Categories</span><b>${S.categories.length}</b></div><div class="kv"><span>Data range</span><b>${ds.length?fmtDate(ds[0])+' – '+fmtDate(ds[ds.length-1]):'–'}</b></div><div class="kv"><span>Last backup</span><b>${lb?new Date(lb).toLocaleString('de-DE'):'never'}</b></div>
   <div class="brow" style="margin-top:14px"><button class="btn pri" data-act="export">Export backup</button><button class="btn" data-act="import">Restore from backup…</button></div></div>
+ <div class="card"><h3>🏦 Bank statement</h3><p>Import the CSV you download in Commerzbank online banking (Umsätze → Export → CSV). Categories are suggested and the app learns from your corrections. Already imported transactions are skipped.</p><button class="btn pri" data-act="bankimport">Import bank CSV</button></div>
  <div class="card"><h3>📊 Spreadsheet export</h3><p>All entries as a CSV file (semicolon-separated, German number format) — opens directly in Numbers or Excel.</p><button class="btn" data-act="csv">Export CSV</button></div>
  <div class="card"><h3>✨ Demo data</h3><p>24 months of realistic sample data to try every chart and filter. Demo entries are marked and can be removed in one click without touching your own entries.</p><div class="brow">${demo?`<button class="btn danger" data-act="undemo">Remove ${demo} demo entries</button>`:`<button class="btn" data-act="demo">Load demo data</button>`}</div></div>
  <div class="card"><h3>🎨 Appearance</h3><p>Choose a theme.</p><div class="seg"><button data-act="settheme" data-t="dark" class="${S.ui.theme!=='light'?'on':''}">Dark</button><button data-act="settheme" data-t="light" class="${S.ui.theme==='light'?'on':''}">Light</button></div></div>
  <div class="card" style="border-color:rgba(251,113,133,.35)"><h3>⚠️ Danger zone</h3><p>These actions can’t be undone. Export a backup first.</p><div class="brow"><button class="btn danger" data-act="wipe">Delete all entries</button><button class="btn danger" data-act="reset">${S.sync.on?'Reset this device':'Reset everything'}</button></div></div>
  </div>`}
-function exportJSON(){S.meta.lastBackup=Date.now();save();download(`hausbudget-backup-${todayStr()}.json`,JSON.stringify({app:'hausbudget',v:2,exported:new Date().toISOString(),categories:S.categories.filter(c=>!c.demo),entries:S.entries.filter(e=>!e.demo)},null,1),'application/json');toast('Backup exported','ok');render()}
+function exportJSON(){S.meta.lastBackup=Date.now();save();download(`hausbudget-backup-${todayStr()}.json`,JSON.stringify({app:'hausbudget',v:2,exported:new Date().toISOString(),categories:S.categories.filter(c=>!c.demo),entries:S.entries.filter(e=>!e.demo),rules:S.rules},null,1),'application/json');toast('Backup exported','ok');render()}
 function exportCSV(){const CM=catMap();const rows=[['Datum','Kategorie','Gruppe','Person','Typ','Betrag','Notiz']];S.entries.slice().sort((a,b)=>a.date<b.date?-1:1).forEach(e=>{const c=CM.get(e.catId)||{};const t=v=>{v=String(v==null?'':v);return /^[=+\-@\t\r]/.test(v)?"'"+v:v};rows.push([fmtDate(e.date),t(c.name),t(c.group),t(c.person),TYPES[c.type],String(e.amount).replace('.',','),t(e.note)])});
  download(`hausbudget-${todayStr()}.csv`,'\ufeff'+rows.map(r=>r.map(x=>{x=String(x??'');return /[;"\n]/.test(x)?`"${x.replace(/"/g,'""')}"`:x}).join(';')).join('\n'),'text/csv');toast('CSV exported','ok')}
 $('#file').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const r=new FileReader();r.onload=()=>{let d;try{d=JSON.parse(r.result)}catch(x){return toast('That file is not a valid backup','err')}
  if(!d||!Array.isArray(d.categories)||!Array.isArray(d.entries))return toast('That file is not a valid backup','err');
  d=sanitizeDoc(d);if(!d.categories.length)return toast('That file is not a valid backup','err');
  confirmM('Restore backup',`Replace your current data (${S.entries.length} entries) with this backup (${d.entries.length} entries, ${d.categories.length} categories)?${S.sync.on?' This also replaces the data in Google Drive and on your other devices.':''}`,'Restore',()=>{const now=Date.now();
-  S.categories=d.categories.map(c=>Object.assign({},c,{u:now}));S.entries=d.entries.filter(e=>!e.demo).map(e=>Object.assign({},e,{u:now}));S.meta.lastBackup=now;S.meta.pristine=false;save();applyPreset('12m');toast('Backup restored','ok');render()})};r.readAsText(f)});
+  S.categories=d.categories.map(c=>Object.assign({},c,{u:now}));if(d.rules.length)S.rules=d.rules.map(r=>Object.assign({},r,{u:now}));S.entries=d.entries.filter(e=>!e.demo).map(e=>Object.assign({},e,{u:now}));S.meta.lastBackup=now;S.meta.pristine=false;save();applyPreset('12m');toast('Backup restored','ok');render()})};r.readAsText(f)});
 
 /* ---------- demo ---------- */
 function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -807,16 +831,16 @@ async function createFile(doc){const b='hb'+uid(),meta={name:DFILE,mimeType:'app
  return (await gfetch(`${UAPI}/files?uploadType=multipart&fields=id,modifiedTime`,{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+b},body})).json()}
 async function updateFile(id,doc){return (await gfetch(`${UAPI}/files/${id}?uploadType=media&fields=id,modifiedTime`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(doc)})).json()}
 async function trashFile(id){await gfetch(`${DAPI}/files/${id}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({trashed:true})})}
-function localDoc(){return{app:'hausbudget',v:2,wipe:S.wipe||0,categories:S.categories.filter(c=>!c.demo),entries:S.entries.filter(e=>!e.demo),del:Object.assign({},S.del)}}
+function localDoc(){return{app:'hausbudget',v:2,wipe:S.wipe||0,categories:S.categories.filter(c=>!c.demo),entries:S.entries.filter(e=>!e.demo),rules:S.rules.slice(),del:Object.assign({},S.del)}}
 // newest version of each item wins; a deletion beats any older version
 function mergeDocs(a,b){const del=Object.assign({},a.del||{});for(const [k,t] of Object.entries(b.del||{}))if(!(del[k]>=t))del[k]=t;
  const cut=Date.now()-180*864e5;for(const k in del)if(del[k]<cut)delete del[k];
  const m=(x,y)=>{const map=new Map();(x||[]).forEach(i=>map.set(i.id,i));(y||[]).forEach(i=>{const o=map.get(i.id);if(!o||(i.u||0)>=(o.u||0))map.set(i.id,i)});return[...map.values()].filter(i=>!(del[i.id]>=(i.u||0)))};
  const wipe=Math.max(a.wipe||0,b.wipe||0); // "Delete all entries" removes every entry older than that moment, on every device
- return{app:'hausbudget',v:2,wipe,categories:m(a.categories,b.categories),entries:m(a.entries,b.entries).filter(e=>(e.u||0)>wipe),del}}
-function sig(d){const f=a=>a.map(i=>JSON.stringify(i)).sort().join('\n');return (d.wipe||0)+'|'+f(d.categories)+'|'+f(d.entries)+'|'+Object.keys(d.del||{}).sort().map(k=>k+':'+d.del[k]).join(',')}
+ return{app:'hausbudget',v:2,wipe,categories:m(a.categories,b.categories),entries:m(a.entries,b.entries).filter(e=>(e.u||0)>wipe),rules:m(a.rules,b.rules),del}}
+function sig(d){const f=a=>a.map(i=>JSON.stringify(i)).sort().join('\n');return (d.wipe||0)+'|'+f(d.categories)+'|'+f(d.entries)+'|'+f(d.rules||[])+'|'+Object.keys(d.del||{}).sort().map(k=>k+':'+d.del[k]).join(',')}
 function applyDoc(d){const before=sig(localDoc()),ids=new Set(d.categories.map(c=>c.id));
- S.categories=d.categories.concat(S.categories.filter(c=>c.demo&&!ids.has(c.id)));const cids=new Set(S.categories.map(c=>c.id));S.entries=d.entries.concat(S.entries.filter(e=>e.demo&&cids.has(e.catId)));S.del=Object.assign({},d.del||{});S.wipe=d.wipe||0;saveRaw();return before!==sig(localDoc())}
+ S.categories=d.categories.concat(S.categories.filter(c=>c.demo&&!ids.has(c.id)));const cids=new Set(S.categories.map(c=>c.id));S.entries=d.entries.concat(S.entries.filter(e=>e.demo&&cids.has(e.catId)));S.rules=(d.rules||[]).slice();S.del=Object.assign({},d.del||{});S.wipe=d.wipe||0;saveRaw();return before!==sig(localDoc())}
 function scheduleSync(ms){if(!S.sync.on)return;clearTimeout(SY.timer);SY.timer=setTimeout(()=>syncNow(),ms==null?2000:ms);if(SY.state==='ok')setSync('ok')}
 async function syncNow(first){
  if(!S.sync.on||!clientId())return setSync('off');
@@ -830,7 +854,7 @@ async function syncNow(first){
    for(const f of files){const d=await driveDownload(f.id);remote=remote?mergeDocs(remote,d):d}
    let next;
    if(!remote)next=localDoc();
-   else if(S.meta.pristine)next={app:'hausbudget',v:2,wipe:remote.wipe||0,categories:remote.categories,entries:remote.entries,del:remote.del||{}};
+   else if(S.meta.pristine)next={app:'hausbudget',v:2,wipe:remote.wipe||0,categories:remote.categories,entries:remote.entries,rules:remote.rules||[],del:remote.del||{}};
    else{const rc=new Set(remote.categories.map(c=>c.id)),byName=new Map(remote.categories.map(c=>[String(c.name).toLowerCase(),c.id]));
     // untouched starter categories of this device: reuse the existing category with the same name, drop unused ones
     S.categories.forEach(c=>{if(c.u||c.demo||rc.has(c.id))return;const rid=byName.get(String(c.name).toLowerCase());if(rid)S.entries.forEach(e=>{if(e.catId===c.id)e.catId=rid})});
@@ -883,6 +907,139 @@ function initSync(){
  document.addEventListener('focusout',()=>setTimeout(()=>{if(SY.pendingRender)softRender()},250));
 }
 
+
+/* ---------- bank statement import ---------- */
+// The bank file is read only here in the browser; only the entries you confirm are saved (and synced).
+const IMP={rows:[],file:'',filter:'all',limit:150,pending:{},ov:null};
+function decodeBytes(buf){let t;try{t=new TextDecoder('utf-8',{fatal:true}).decode(buf)}catch(e){t=new TextDecoder('windows-1252').decode(buf)}return t.replace(/^﻿/,'')}
+function detectDelim(text){const s=text.split(/\r?\n/).slice(0,25).join('\n');const n=d=>s.split(d).length;return [';','\t',','].sort((a,b)=>n(b)-n(a))[0]}
+function parseCSV(text,d){const rows=[];let row=[],f='',q=false;
+ for(let i=0;i<text.length;i++){const ch=text[i];
+  if(q){if(ch==='"'){if(text[i+1]==='"'){f+='"';i++}else q=false}else f+=ch}
+  else if(ch==='"'&&f.trim()===''){q=true;f=''}else if(ch===d){row.push(f);f=''}
+  else if(ch==='\n'||ch==='\r'){if(ch==='\r'&&text[i+1]==='\n')i++;row.push(f);rows.push(row);row=[];f=''}else f+=ch}
+ if(f!==''||row.length){row.push(f);rows.push(row)}
+ return rows.filter(r=>r.some(c=>String(c).trim()!==''))}
+function parseDate(v){v=String(v||'').trim();let m=v.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/)||v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+ if(m){let y=+m[3];if(y<100)y+=2000;const mo=+m[2],da=+m[1];if(mo<1||mo>12||da<1||da>31)return null;return `${y}-${p2(mo)}-${p2(da)}`}
+ m=v.match(/^(\d{4})-(\d{2})-(\d{2})/);return m?`${m[1]}-${m[2]}-${m[3]}`:null}
+function parseBankAmt(v){v=String(v||'').trim();let neg=false;if(/-$/.test(v)){neg=true;v=v.slice(0,-1)}if(/^\(.*\)$/.test(v)){neg=true;v=v.slice(1,-1)}const n=parseAmt(v);return isFinite(n)?(neg?-Math.abs(n):n):NaN}
+const COLS={date:/^(buchungstag|buchungsdatum|datum|date|booking ?date|transaktionsdatum)$/i,amount:/^(betrag|betrag ?\((eur|€)\)|betrag in eur|umsatz|amount|amount ?\((eur|€)\)|summe)$/i,
+ soll:/^(soll|belastung|ausgang|debit)$/i,haben:/^(haben|eingang|credit)$/i,kind:/^(umsatzart|buchungsart|vorgang|transaction type|typ)$/i,
+ iban:/^(iban kontoinhaber|iban auftraggeberkonto|auftraggeber iban|iban)$/i,cat:/^(kategorie|category)$/i,
+ sender:/^(sender|auftraggeber|zahlungspflichtige.*)$/i,recipient:/^(empfänger|empfaenger|zahlungsempfänger.*|zahlungsempfaenger.*|begünstigter.*|beguenstigter.*)$/i,purpose:/^(verwendungszweck|purpose|reference)$/i,
+ text:/^(buchungstext|beschreibung|description|auftraggeber ?\/ ?empfänger|name|payee|gegenpartei|partner)$/i};
+function findHeader(rows){for(let i=0;i<Math.min(rows.length,25);i++){const h=rows[i].map(c=>String(c).trim());const f=k=>h.findIndex(x=>COLS[k].test(x));
+  const date=f('date'),amount=f('amount'),soll=f('soll'),haben=f('haben');if(date<0||(amount<0&&(soll<0||haben<0)))continue;
+  return{row:i,head:h,date,amount,soll,haben,kind:f('kind'),iban:f('iban'),cat:f('cat'),sender:f('sender'),recipient:f('recipient'),purpose:f('purpose'),text:h.map((x,j)=>COLS.text.test(x)?j:-1).filter(j=>j>=0)}}return null}
+const CUT=/(end-to-end-ref|kundenreferenz|mandatsref|mandat\b|gl(ä|ae)ubiger|creditor|eref\+|kref\+|mref\+|svwz\+|abwa\+|karte nr|autorisiert am|ref\.:|\/\/|\b\d{4}-\d{2}-\d{2}|\b\d{2}\.\d{2}\.\d{2,4}|\bde\d{2}[\d ]{10,})/i;
+function payeeOf(t){let v=String(t||'').replace(/\s+/g,' ').trim();const m=v.search(CUT);if(m>0)v=v.slice(0,m);return v.replace(/[\s,.;:\-\/·]+$/,'').trim().slice(0,60)}
+// payment providers: the real shop is named in the purpose text
+const PROC=/^(paypal|s\.? ?payment solutions|payone|adyen|stripe|klarna|mollie|concardis|nexi|worldline|vr payment|computop|unzer)\b/i;
+function cleanPayee(v){v=String(v||'').replace(/\s+/g,' ').trim().replace(/^(sumup|sq|zettle|izettle|ztl)\s*\*+\s*/i,'').replace(/^\d{2,}\s+(?=\D)/,'');
+ const c=v.indexOf(', ');if(c>2)v=v.slice(0,c);return v.replace(/\s+(de|d|deu)$/i,'').replace(/[\s,.;:\-\/·*+&]+$/,'').trim().slice(0,60)}
+function merchantFrom(purpose){const p=String(purpose||'');const m=p.match(/einkauf bei\s+([^\/,]+)/i);if(m)return cleanPayee(m[1].replace(/\s+(abbuchung|zahlung|gutschrift|rückzahlung|erstattung)\b.*$/i,''));
+ const v=p.replace(/^[\s.\/\d]*(pp\.\d+\.pp\/)?[\s.\/]*/i,'').split(/\s+/).filter(w=>!(/\d/.test(w)&&w.length>=6)).join(' ');return cleanPayee(payeeOf(v))}
+function fnv(v){let h=0x811c9dc5;for(let i=0;i<v.length;i++){h^=v.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(36)}
+const normKey=v=>String(v==null?'':v).toLowerCase().replace(/[^a-z0-9äöüß&+]+/g,' ').replace(/\s+/g,' ').trim();
+const STOPW=new Set(['gmbh','ag','kg','co','und','ev','mbh','se','sa','sarl','gbr','ohg','inc','ltd','the','der','die','das','et','cie','sca','ug']);
+const keyOf=p=>{const t=normKey(p).split(' ').filter(Boolean),ix=[];t.forEach((w,i)=>{if(w.length>1&&!/\d/.test(w)&&!STOPW.has(w))ix.push(i)});return ix.length?t.slice(ix[0],ix[Math.min(1,ix.length-1)]+1).join(' ').slice(0,60):''}; // first two meaningful words, kept as a phrase so it matches the bank text
+function payeeFor(cell,hd,amt,text){let who=amt<0?cell(hd.recipient):cell(hd.sender);if(!who)who=amt<0?cell(hd.sender):cell(hd.recipient);
+ if(!who){const p=payeeOf(text);return{label:p,keySrc:p}}
+ const pm=who.match(PROC);if(pm&&hd.purpose>=0){const mer=merchantFrom(cell(hd.purpose));if(mer&&mer.length>1&&!PROC.test(mer)){const pr=/paypal/i.test(pm[0])?'PayPal · ':/payment solutions/i.test(pm[0])?'':pm[0].replace(/\b\w/g,x=>x.toUpperCase())+' · ';return{label:(pr+mer).slice(0,70),keySrc:mer}}}
+ const c=cleanPayee(who)||who;return{label:c,keySrc:c}}
+const BUILTIN=[[/\b(rewe|edeka|lidl|aldi|netto|penny|kaufland|norma|tegut|globus|alnatura|marktkauf|aktiv markt|supermarkt|bäckerei|baeckerei|backwaren|backhaus|metzgerei|denns)\b/,['Lebensmittel'],'out'],
+ [/\b(aral|shell|esso|avia|agip|omv|tankstelle)\b/,['Tanken'],'out'],[/\b(stadtwerke|e\.on|eon energie|vattenfall|enbw|yello|eprimo|lichtblick)\b/,['Strom'],'out'],
+ [/\b(telekom|vodafone|1&1|1und1)\b/,['Internet'],'out'],[/\b(telefonica|congstar|fraenk|aldi talk|blau\.de)\b/,['Telefon'],'out'],
+ [/\b(netflix|disney plus|disney\+|sky deutschland|dazn|waipu|joyn|rundfunk ard|rundfunkbeitrag|beitragsservice)\b/,['Fernsehen'],'out'],[/\b(leasing|mobility concept)\b/,['Leasing Auto'],'out'],
+ [/\b(darlehen|tilgung|baufinanzierung|hypothek)\b/,['Hypothek'],'out'],[/\b(familienkasse|kindergeld)\b/,['Kindergeld'],'in'],
+ [/\b(zalando|h&m|zara|primark|about you|deichmann|ernsting|ernstings|nkd|kik|takko|tk maxx|tkmaxx|boozt|bonprix)\b/,['Kleidung'],'out'],[/\b(booking\.com|airbnb|lufthansa|ryanair|eurowings|condor|expedia)\b/,['Urlaub'],'out'],
+ [/\b(kfz-versicherung|kfz versicherung|autoversicherung|kraftfahrt-versicherung)\b/,['Versicherung Auto'],'out'],[/\b(wohngebäude|wohngebaeude)\b/,['Wohngebäudeversicherung'],'out'],
+ [/\b(trade republic|scalable capital|flatex|consorsbank|smartbroker)\b/,['ETF'],'out'],
+ [/\b(apotheke|pharmacy|docmorris)\b/,['Apotheke','Gesundheit','Drogerie & Apotheke'],'out'],[/\b(drogerie|rossmann|müller sagt|mueller sagt|budnikowsky)\b/,['Drogerie','Drogerie & Apotheke'],'out'],
+ [/\b(restaurant|pizzeria|osteria|trattoria|ristorante|gasthaus|gasthof|wirtshaus|bistro|imbiss|döner|doener|kebab|mcdonald|burger king|subway|starbucks|café|cafe|biergarten)\b/,['Restaurants & Bars','Restaurants','Restaurant','Essen gehen','Ausgehen'],'out'],
+ [/\b(bauhaus|toom|obi|hornbach|hagebau|ikea|xxxlutz|moemax|mömax|poco|dehner|baumarkt|möbel|moebel)\b/,['Haus & Garten','Instandhaltung','Haushalt','Möbel'],'out'],
+ [/\b(amazon)\b/,['Online-Shopping','Shopping','Amazon'],'out'],[/\b(parkhaus|parkplatz|parken|apcoa|easypark|parkster)\b/,['Parken','Parken & Maut'],'out'],
+ [/\b(kontoführung|kontofuehrung|kontoentgelt)\b/,['Bankgebühren','Kontoführung','Gebühren'],'out'],[/\b(realsteuerstelle|grundsteuer)\b/,['Grundsteuer'],'out'],
+ [/\b(friseur|frisör|barber|haarstudio)\b/,['Friseur'],'out'],[/\b(bargeldauszahlung|geldautomat)\b/,['Bargeld'],'out']];
+const NOT_FOOD=/\b(apotheke|drogerie|rossmann|müller sagt|mueller sagt|dm drogerie)\b/;
+// the bank's own category as a last hint (only if you have a matching category)
+const BANKMAP=[[/lebenshaltung|lebensmittel/,['Lebensmittel']],[/restaurant|bars|gastronomie/,['Restaurants & Bars','Restaurants','Restaurant','Essen gehen','Ausgehen']],[/bargeld/,['Bargeld']],
+ [/instandhaltung|baumarkt/,['Haus & Garten','Instandhaltung','Haus','Haushalt']],[/online|einzelhandel|shopping/,['Online-Shopping','Shopping','Einkäufe']],[/banken|kredite|gebühr|entgelt/,['Bankgebühren','Kontoführung','Gebühren']],[/mobilit|auto/,['Auto Sonstiges','Parken']]];
+function catByName(names){for(const n of names){const c=S.categories.find(x=>!x.demo&&x.name.toLowerCase()===n.toLowerCase());if(c)return c}return null}
+function suggest(r,CM){let best=null;
+ for(const ru of S.rules){const m=normKey(ru.match);if(m&&r.mnorm.includes(' '+m+' ')&&(ru.cat==='_skip'||CM.has(ru.cat))&&(!best||m.length>normKey(best.match).length))best=ru}
+ if(best)return{cat:best.cat,src:'rule'};
+ if(/\b(umbuchung|übertrag|uebertrag)\b/.test(r.norm)||/umbuchung|übertrag/i.test(r.kind+' '+r.bankCat))return{cat:'_skip',src:'auto'};
+ for(const [re,names,dir] of BUILTIN){if((dir==='in'&&r.amt<0)||(dir==='out'&&r.amt>0))continue;if(re.test(r.norm)){const c=catByName(names);if(c)return{cat:c.id,src:'auto'}}}
+ if(r.bankCat){const bc=r.bankCat.toLowerCase();if(r.amt<0)for(const [re,names] of BANKMAP)if(re.test(bc)&&!(names[0]==='Lebensmittel'&&NOT_FOOD.test(r.norm))){const c=catByName(names);if(c)return{cat:c.id,src:'bank'}}
+  const c=S.categories.find(c=>!c.demo&&c.name.length>3&&bc.includes(c.name.toLowerCase()));if(c)return{cat:c.id,src:'bank'}}
+ return{cat:'',src:''}}
+function buildRows(rows,hd){const CM=catMap(),out=[],seen={},have=new Set(S.entries.filter(e=>e.imp).map(e=>e.imp)),manual=S.entries.filter(e=>!e.imp&&!e.demo);let pending=0;
+ for(let i=hd.row+1;i<rows.length;i++){const r=rows[i],cell=j=>j>=0?String(r[j]==null?'':r[j]).trim():'';const date=parseDate(cell(hd.date));
+  if(!date){if(r.some(x=>String(x).trim()))pending++;continue}
+  let amt=hd.amount>=0?parseBankAmt(cell(hd.amount)):((parseBankAmt(cell(hd.haben))||0)-Math.abs(parseBankAmt(cell(hd.soll))||0));if(!isFinite(amt)||Math.abs(amt)<0.005)continue;amt=Math.round(amt*100)/100;
+  const kind=cell(hd.kind),text=(hd.text.concat(hd.purpose>=0?[hd.purpose]:[]).map(cell).filter(Boolean).join(' · ')||kind).slice(0,300),iban=cell(hd.iban).replace(/\s+/g,'').toUpperCase(),norm=normTxt(text);
+  const base=`${date}|${amt.toFixed(2)}|${norm.slice(0,80)}|${iban}`;seen[base]=(seen[base]||0)+1;const fp=(fnv(base+'#'+seen[base])+fnv('k'+base+'#'+seen[base])).slice(0,24);
+  const pf=payeeFor(cell,hd,amt,text),payee=pf.label||kind||'—';
+  const row={i:out.length,date,amt,text,payee,key:keyOf(pf.keySrc||payee),kind,bankCat:cell(hd.cat),iban,norm:normTxt(payee+' '+text),mnorm:' '+normKey(payee+' '+text)+' ',fp,dup:have.has(fp),maybe:false,cat:'',src:'',on:true};
+  if(!row.dup)row.maybe=manual.some(e=>Math.abs(Math.abs(e.amount)-Math.abs(amt))<0.005&&Math.abs(new Date(e.date)-new Date(date))<=2*864e5);
+  const sg=suggest(row,CM);row.cat=sg.cat;row.src=sg.src;row.on=!row.dup&&!row.maybe;out.push(row)}
+ out.pending=pending;return out}
+function handleCsv(file){if(!file)return;if(file.size>15e6)return toast('That file is too large for a bank statement','err');const fr=new FileReader();
+ fr.onload=()=>{try{const text=decodeBytes(fr.result),rows=parseCSV(text,detectDelim(text));if(rows.length<2)return toast('No transactions found in that file','err');
+  const hd=findHeader(rows);if(!hd)return mappingModal(rows,file.name);const r=buildRows(rows,hd);if(!r.length)return toast('No transactions with a date and amount found in that file','err');reviewModal(r,file.name)}
+  catch(e){toast('Could not read that file','err')}};fr.readAsArrayBuffer(file)}
+function mappingModal(rows,fname){const n=Math.max(...rows.slice(0,15).map(r=>r.length));let hr=rows.findIndex(r=>r.length===n);if(hr<0)hr=0;
+ const head=rows[hr].map((c,j)=>String(c).trim()||('Column '+(j+1))),opts=(sel,none)=>(none?'<option value="-1">—</option>':'')+head.map((h,j)=>`<option value="${j}" ${j===sel?'selected':''}>${esc(h)}</option>`).join('');
+ const sample=rows.slice(hr+1,hr+4).map(r=>`<tr>${head.map((_,j)=>`<td>${esc(r[j]||'')}</td>`).join('')}</tr>`).join('');
+ modal('Which column is which?',`<p>This file's format wasn't recognised automatically. Please pick the columns once:</p><div class="two"><label class="fl">Date<select id="mp-d">${opts(0)}</select></label><label class="fl">Amount<select id="mp-a">${opts(Math.min(1,head.length-1))}</select></label><label class="fl">Payee / text<select id="mp-t">${opts(Math.min(2,head.length-1))}</select></label><label class="fl">More text (optional)<select id="mp-t2">${opts(-1,true)}</select></label></div><div class="tscroll" style="max-height:200px"><table class="mini"><thead><tr>${head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${sample}</tbody></table></div>`,
+ [{label:'Cancel'},{label:'Continue',cls:'pri',fn:ov=>{const g=id=>+$(id,ov).value,t2=g('#mp-t2');const hd={row:hr,head,date:g('#mp-d'),amount:g('#mp-a'),soll:-1,haben:-1,kind:-1,iban:-1,cat:-1,sender:-1,recipient:-1,purpose:t2,text:[g('#mp-t')]};
+  const r=buildRows(rows,hd);if(!r.length){toast('No rows with a valid date and amount in these columns','err');return false}setTimeout(()=>reviewModal(r,fname),60)}}],null,{wide:true})}
+const needs=r=>r.on&&!r.dup&&!r.cat;
+function impCounts(){const R=IMP.rows;return{all:R.length,need:R.filter(needs).length,skip:R.filter(r=>r.cat==='_skip').length,dup:R.filter(r=>r.dup||r.maybe).length,go:R.filter(r=>r.on&&!r.dup&&r.cat&&r.cat!=='_skip').length}}
+function impOptions(inflow){const order=inflow?['income','tradingGain','savings','expense','tradingLoss']:['expense','savings','tradingLoss','income','tradingGain'];
+ const gs=groupsList().filter(g=>S.categories.some(c=>!c.demo&&c.group===g)).sort((a,b)=>{const ta=order.indexOf((S.categories.find(c=>c.group===a)||{}).type),tb=order.indexOf((S.categories.find(c=>c.group===b)||{}).type);return ta-tb});
+ return '<option value="">Choose category…</option><option value="_skip">Skip – own transfer, not income/expense</option><option value="_new">+ New category…</option>'+gs.map(g=>`<optgroup label="${esc(g)}">${S.categories.filter(c=>!c.demo&&c.group===g).map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('')}</optgroup>`).join('')}
+function renderImpMeta(){const C=impCounts(),F2=IMP.filter,f=$('#imp-f');if(f)f.innerHTML=[['all','All',C.all],['need','Needs category',C.need],['skip','Skipped',C.skip],['dup','Duplicates',C.dup]].map(([k,l,n])=>`<button data-impf="${k}" class="${F2===k?'on':''}">${l} · ${n}</button>`).join('');
+ const btn=IMP.ov&&IMP.ov.querySelector('.mf .btn.pri');if(btn)btn.textContent=C.go?`Import ${C.go} entr${C.go===1?'y':'ies'}`:'Import';
+ $$('#imp-list .imp-row').forEach(el=>{const r=IMP.rows[+el.dataset.i];el.querySelector('select').classList.toggle('need',needs(r))})}
+function renderImp(){const box=$('#imp-list');if(!box)return;const F2=IMP.filter;
+ const list=IMP.rows.filter(r=>F2==='need'?needs(r):F2==='skip'?r.cat==='_skip':F2==='dup'?(r.dup||r.maybe):true),shown=list.slice(0,IMP.limit),oOut=impOptions(false),oIn=impOptions(true);
+ const bc={};IMP.rows.filter(needs).forEach(r=>{if(r.bankCat){const b=bc[r.bankCat]||(bc[r.bankCat]={n:0,inn:0});b.n++;if(r.amt>0)b.inn++}});const bcs=Object.entries(bc).sort((a,b)=>b[1].n-a[1].n);
+ const bulk=F2==='need'&&bcs.length?`<div class="qa-bank"><div class="qab-h">Assign everything in a Commerzbank category at once <span class="mut">(you can still change single rows)</span></div>${bcs.map(([k,v])=>`<label class="qab"><span>${esc(k)} <b>${v.n}</b></span><select data-impbulk="${esc(k)}">${v.inn>v.n/2?oIn:oOut}</select></label>`).join('')}</div>`:'';
+ box.innerHTML=bulk+shown.map(r=>{const b=(r.dup?'<span class="bdg dup">already imported</span>':'')+(r.maybe?'<span class="bdg dup">possible duplicate of a manual entry</span>':'')+(r.src==='rule'?'<span class="bdg rule">rule</span>':r.src==='auto'?'<span class="bdg auto">suggested</span>':r.src==='bank'?'<span class="bdg auto">bank category</span>':r.src==='you'?'<span class="bdg you">your choice</span>':'')+(r.bankCat?`<span class="bdg">${esc(r.bankCat)}</span>`:'');
+  return `<div class="imp-row ${r.dup?'is-dup':''}" data-i="${r.i}"><input type="checkbox" data-imp="on" ${r.on?'checked':''} ${r.dup?'disabled':''} aria-label="Import this transaction"><div class="imp-d">${fmtDate(r.date)}</div><div class="imp-t"><b>${esc(r.payee)}</b><span class="tx" title="${esc(r.text)}">${esc(r.text)}</span>${b}</div><div class="imp-a ${r.amt>0?'pos':''}">${r.amt>0?'+':''}${money2(r.amt)}</div><select data-imp="cat" class="${needs(r)?'need':''}" ${r.dup?'disabled':''}>${r.amt>0?oIn:oOut}</select></div>`}).join('')
+  +(list.length>shown.length?`<div class="imp-more"><button class="btn" data-impmore="1">Show ${Math.min(150,list.length-shown.length)} more · ${list.length-shown.length} not shown</button></div>`:'')
+  +(list.length?'':`<div class="empty">${F2==='need'?'Every transaction has a category 🎉':'Nothing here.'}</div>`);
+ box.querySelectorAll('.imp-row').forEach(el=>{const r=IMP.rows[+el.dataset.i];el.querySelector('select').value=r.cat});renderImpMeta()}
+function newCatModal(inflow,name,cb){const types=inflow?['income','expense','savings','tradingGain']:['expense','savings','income','tradingLoss'];
+ modal('New category',`<label class="fl">Name<input id="nc2-name" value="${esc(name||'')}" autocomplete="off"></label><div class="two"><label class="fl">Group<input id="nc2-group" list="dl-g2" placeholder="e.g. Freizeit" autocomplete="off"></label><label class="fl">Person<input id="nc2-person" list="dl-p2" value="Familie" autocomplete="off"></label></div><label class="fl">Type<select id="nc2-type">${types.map(t=>`<option value="${t}">${TYPES[t]}</option>`).join('')}</select></label><datalist id="dl-g2">${groupsList().map(g=>`<option value="${esc(g)}">`).join('')}</datalist><datalist id="dl-p2">${personsList().map(p=>`<option value="${esc(p)}">`).join('')}</datalist>`,
+ [{label:'Cancel'},{label:'Create',cls:'pri',fn:ov=>{const n=$('#nc2-name',ov).value.trim().slice(0,80),g=$('#nc2-group',ov).value.trim().slice(0,60),pe=($('#nc2-person',ov).value.trim()||'Familie').slice(0,60),t=$('#nc2-type',ov).value;if(!n||!g){toast('Name and group are required','err');return false}
+  let c=S.categories.find(x=>!x.demo&&x.name.toLowerCase()===n.toLowerCase());if(!c){c={id:uid(),name:n,group:g,person:pe,type:t};S.categories.push(c);save();toast(`Category “${n}” created`,'ok')}cb(c.id)}}])}
+function setImpCat(i,v){const r=IMP.rows[i];if(v==='_new'){renderImp();return newCatModal(r.amt>0,'',id=>setImpCat(i,id))}
+ r.cat=v;r.src=v?'you':'';if(!r.dup&&!r.maybe)r.on=true;
+ if(r.key&&v){IMP.pending[r.key]=v;IMP.rows.forEach(o=>{if(o!==r&&o.key===r.key&&o.src!=='you'&&!o.dup){o.cat=v;o.src='rule'}})}renderImp()}
+function bulkImpCat(bankCat,v){if(v==='_new'){renderImp();const inn=IMP.rows.filter(r=>needs(r)&&r.bankCat===bankCat&&r.amt>0).length>IMP.rows.filter(r=>needs(r)&&r.bankCat===bankCat).length/2;return newCatModal(inn,bankCat,id=>bulkImpCat(bankCat,id))}
+ if(!v)return;let n=0;IMP.rows.forEach(r=>{if(needs(r)&&r.bankCat===bankCat){r.cat=v;r.src='you';n++;if(r.key)IMP.pending[r.key]=v}});toast(`${n} transaction${n===1?'':'s'} assigned`,'ok');renderImp()}
+function reviewModal(rows,fname){IMP.rows=rows;IMP.file=fname;IMP.limit=150;IMP.pending={};IMP.filter=rows.some(needs)?'need':'all';
+ const ib=(rows.find(r=>r.iban)||{}).iban,ds=rows.map(r=>r.date).sort(),inS=sum(rows.filter(r=>r.amt>0).map(r=>r.amt)),outS=sum(rows.filter(r=>r.amt<0).map(r=>r.amt));
+ const pend=rows.pending?`<div class="note-box" style="border-color:rgba(251,191,36,.45)">⏳ ${rows.pending} pending card payment${rows.pending>1?'s':''} without a booking date ${rows.pending>1?'were':'was'} left out. They will be imported with your next export, once the bank has booked them.</div>`:'';
+ modal('Import bank statement',`<div class="imp-head"><div><b>${esc(fname)}</b>${ib?` · account ••${esc(ib.slice(-4))}`:''}<br><span class="mut">${fmtDate(ds[0])} – ${fmtDate(ds[ds.length-1])} · ${rows.length} transactions · in <span style="color:var(--inc)">+${money2(inS)}</span> · out <span style="color:var(--exp)">${money2(outS)}</span></span></div><div class="seg" id="imp-f"></div></div>${pend}<div class="note-box">Check the categories and fix any that are wrong: the app remembers your choice for that payee next time. Money moved between your own accounts: choose <b>Skip</b>. Transactions that were imported before are left out automatically.</div><div id="imp-list"></div>`,
+ [{label:'Cancel'},{label:'Import',cls:'pri',fn:()=>doImport()}],ov=>{IMP.ov=ov;
+  ov.addEventListener('change',e=>{const bk=e.target.closest('[data-impbulk]');if(bk)return bulkImpCat(bk.dataset.impbulk,bk.value);const el=e.target.closest('[data-imp]');if(!el)return;const i=+el.closest('.imp-row').dataset.i;if(el.dataset.imp==='cat')setImpCat(i,el.value);else{IMP.rows[i].on=el.checked;renderImpMeta()}});
+  ov.addEventListener('click',e=>{const f=e.target.closest('[data-impf]');if(f){IMP.filter=f.dataset.impf;IMP.limit=150;renderImp();return}if(e.target.closest('[data-impmore]')){IMP.limit+=150;renderImp()}});
+  renderImp()},{wide:true})}
+function doImport(){const go=IMP.rows.filter(r=>r.on&&!r.dup),missing=go.filter(r=>!r.cat);
+ if(missing.length){toast(`${missing.length} transaction${missing.length>1?'s still need':' still needs'} a category – choose one, choose Skip, or untick ${missing.length>1?'them':'it'}`,'err');IMP.filter='need';renderImp();return false}
+ const CM=catMap(),months=[];let n=0;
+ go.forEach(r=>{if(r.cat==='_skip')return;const c=CM.get(r.cat);if(!c)return;const sign=(c.type==='income'||c.type==='tradingGain')?1:-1;
+  S.entries.push({id:uid(),date:r.date,catId:c.id,amount:Math.round(r.amt*sign*100)/100,note:(r.payee&&!normTxt(r.text).startsWith(normTxt(r.payee))?r.payee+' · '+r.text:r.text).slice(0,200),imp:r.fp});n++;months.push(r.date.slice(0,7))});
+ const learned=Object.entries(IMP.pending);learned.forEach(([k,v])=>{const ex=S.rules.find(x=>normKey(x.match)===k);if(ex)ex.cat=v;else S.rules.push({id:uid(),match:k,cat:v})});
+ if(n){months.sort();F.preset='custom';F.years=[];F.from=months[0];F.to=months[months.length-1];S.ui.filter=F;S.ui.view='dashboard'}save();
+ toast(`${n} entr${n===1?'y':'ies'} imported${learned.length?` · ${learned.length} rule${learned.length>1?'s':''} learned`:''}`,'ok');render()}
+$('#csvfile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';handleCsv(f)});
+
 /* ---------- events ---------- */
 document.addEventListener('pointerdown',e=>{LASTPT=e.pointerType||'mouse'},true);
 document.addEventListener('touchstart',()=>{LASTPT='touch';document.documentElement.classList.add('touch')},{capture:true,passive:true});
@@ -917,6 +1074,8 @@ document.addEventListener('click',e=>{
   case'copymonth':copyMonth();break;
   case'addcat':addCat();break;
   case'delcat':delCat(t.dataset.id);break;
+  case'bankimport':$('#csvfile').click();break;
+  case'delrule':S.rules=S.rules.filter(r=>r.id!==t.dataset.id);save();render();break;
   case'rengroup':{const g=t.dataset.g;modal('Rename group',`<label class="fl">New name for “${esc(g)}”<input id="m-g" value="${esc(g)}"></label>`,[{label:'Cancel'},{label:'Rename',cls:'pri',fn:ov=>{const n=$('#m-g',ov).value.trim();if(!n)return false;S.categories.forEach(c=>{if(c.group===g)c.group=n});F.groups=F.groups.map(x=>x===g?n:x);save();render()}}]);break}
   case'export':exportJSON();break;
   case'import':$('#file').click();break;
@@ -938,6 +1097,7 @@ document.addEventListener('change',e=>{const t=e.target,c=t.dataset.ch;if(!c)ret
  else if(c==='drill'){DRILL=t.value;render()}
  else if(c==='yoy'){YOY=t.value;drawYoY(dataYears())}
  else if(c==='qacat'){QA.cat=t.value;updQaMeta();$('#qa-amt').focus()}
+ else if(c==='rule'){const r=S.rules.find(x=>x.id===t.dataset.id);if(!r)return;if(t.dataset.f==='match'){const v=normTxt(t.value);if(v.length<2){t.value=r.match;return toast('Please enter at least 2 characters','err')}r.match=v}else r.cat=t.value;save();toast('Rule saved','ok')}
  else if(c==='cat'){const cat=S.categories.find(x=>x.id===t.dataset.id);if(!cat)return;const f=t.dataset.f,v=t.value.trim();if(!v){t.value=cat[f];return toast('Cannot be empty','err')}
   const old=cat[f];cat[f]=v;save();toast('Saved','ok');if(f==='group'&&old!==v)render()}
 });
