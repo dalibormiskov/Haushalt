@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8nm7dqaNNzOqLU1Zr/JlniJ6KDrUI1a4Z0axw5DDlNo=' https://accounts.google.com/gsi/client; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; img-src 'self' data:; font-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WtycLxN+pWyG1oA4j7VqlKwLWdVdiniXTrGUJd6wCBc=' https://accounts.google.com/gsi/client; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; img-src 'self' data:; font-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0e16">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -768,7 +768,7 @@ function loadDemo(){
 
 /* ---------- Google Drive sync ---------- */
 // Your OAuth Client ID from Google Cloud (not a secret). Until it is set here, it can be pasted on the "Data & Backup" page.
-const GOOGLE_CLIENT_ID='PASTE-YOUR-CLIENT-ID.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID='422500671033-mrsne7esfr6ijl1e1gphfhvsc24c93j3.apps.googleusercontent.com';
 const SCOPE='https://www.googleapis.com/auth/drive.file',DAPI='https://www.googleapis.com/drive/v3',UAPI='https://www.googleapis.com/upload/drive/v3',DFILE='Haushalt-Daten.json';
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function lsSet(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
