@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-438CyJ8VwX2OriK73K/tck2uqf7zORbMdZLTnq8j52c=' https://accounts.google.com/gsi/client https://apis.google.com https://www.gstatic.com; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/ https://content.googleapis.com https://apis.google.com; frame-src https://accounts.google.com/gsi/ https://docs.google.com https://drive.google.com https://content.googleapis.com; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style https://www.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https://*.googleusercontent.com https://ssl.gstatic.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-R/Xhy6b56pOcEOzfN/UQVSW42HGvXE7F1gJF+pzsKBk=' https://accounts.google.com/gsi/client https://apis.google.com https://www.gstatic.com; connect-src 'self' https://www.googleapis.com https://accounts.google.com/gsi/ https://content.googleapis.com https://apis.google.com; frame-src https://accounts.google.com/gsi/ https://docs.google.com https://drive.google.com https://content.googleapis.com; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style https://www.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https://*.googleusercontent.com https://ssl.gstatic.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0e16">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -304,9 +304,15 @@ tr.clk{cursor:pointer}tr.clk:hover td{background:var(--card2)}
 (()=>{
 'use strict';
 if(window.top!==window.self){document.documentElement.innerHTML='';return}
+// self-test mode (Settings → Self-test): only on a device where the app is already unlocked; runs on its own test data
+// in a separate storage slot, with a fixed date and no network – your own data is never touched
+const ST=(()=>{try{if(new URLSearchParams(location.search).get('selftest')!=='1')return null;const r=JSON.parse(localStorage.getItem('hausbudget.app.v1')||'null');return r&&r.sync&&r.sync.on?{dl:[],net:0}:null}catch(e){return null}})();
+const ST_VER='aac9ecba92';
+if(ST){const D0=Date,t0=D0.now(),fixed=new D0(2026,10,15,10,0,0).getTime();window.Date=class extends D0{constructor(...a){super(...(a.length?a:[fixed+(D0.now()-t0)]))}static now(){return fixed+(D0.now()-t0)}};
+ window.fetch=()=>{ST.net++;return Promise.reject(new Error('self-test: no network'))};const xo=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){ST.net++;throw new Error('self-test: no network')}}
 /* ---------- basics ---------- */
 const APP_NAME='Haushalt'; // product name – change here only
-let LANG=null;try{LANG=localStorage.getItem('hausbudget.lang')}catch(e){}
+let LANG=null;try{LANG=localStorage.getItem('hausbudget.lang')}catch(e){}if(ST)LANG='de';
 function LNG(){if(LANG==='de'||LANG==='en')return LANG;return /^de/i.test(navigator.language||'')?'de':'en'}
 const Tx=(en,de)=>LNG()==='de'?de:en;
 const PL=(n,en1,enN,de1,deN)=>n+' '+(LNG()==='de'?(n===1?de1:deN):(n===1?en1:enN));
@@ -315,7 +321,8 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const p2=n=>String(n).padStart(2,'0');
 const uid=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-5);
 const sum=a=>a.reduce((x,y)=>x+(+y||0),0);
-const LS='hausbudget.app.v1';
+const LS=ST?'hausbudget.selftest.v1':'hausbudget.app.v1';
+if(ST){try{Object.keys(localStorage).filter(k=>k.startsWith(LS)).forEach(k=>localStorage.removeItem(k))}catch(e){}}
 const C={inc:'#34d399',exp:'#fb7185',sav:'#a78bfa',trd:'#fbbf24',net:'#60a5fa'};
 const PAL=['#60a5fa','#f472b6','#34d399','#fbbf24','#a78bfa','#fb923c','#22d3ee','#f87171','#c08457','#e879f9','#facc15','#38bdf8','#c084fc','#2dd4bf','#fda4af','#93c5fd'];
 const PPAL=['#7c8cff','#f472b6','#34d399','#fbbf24','#22d3ee','#fb923c','#a78bfa','#f87171'];
@@ -578,7 +585,7 @@ function parseAmt(s){s=String(s??'').trim().replace(/[€\s\u00a0\u202f']/g,'');
 const amtStr=v=>String(v).replace('.',',');
 function catOptions(sel,placeholder=true){return(placeholder?`<option value="">${Tx('Choose category…','Kategorie wählen…')}</option>`:'')+groupsList().map(g=>`<optgroup label="${esc(g)}">${S.categories.filter(c=>c.group===g).map(c=>`<option value="${c.id}" ${c.id===sel?'selected':''}>${esc(c.name)}</option>`).join('')}</optgroup>`).join('')}
 const typeOpts=t=>Object.keys(TYPES).map(k=>[k,typeLabel(k)]).map(([k,l])=>`<option value="${k}" ${k===t?'selected':''}>${l}</option>`).join('');
-function download(name,text,type){const b=new Blob([text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},5000)}
+function download(name,text,type){if(ST){ST.dl.push({name,text,type});return}const b=new Blob([text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},5000)}
 
 /* ---------- shell ---------- */
 function buildSide(){
@@ -814,6 +821,7 @@ function vData(){const real=S.entries.filter(e=>!e.demo),demo=S.entries.length-r
  <div class="card"><h3>${Tx('📊 Spreadsheet export','📊 Tabellen-Export')}</h3><p>${Tx('All entries as a CSV file (semicolon-separated, German number format) — opens directly in Numbers or Excel.','Alle Einträge als CSV-Datei (Semikolon-getrennt, deutsches Zahlenformat) – öffnet direkt in Numbers oder Excel.')}</p><button class="btn" data-act="csv">${Tx('Export CSV','CSV exportieren')}</button></div>
  <div class="card"><h3>${Tx('✨ Demo data','✨ Demodaten')}</h3><p>${Tx('24 months of realistic sample data to try every chart and filter. Demo entries are marked and can be removed in one click without touching your own entries.','24 Monate realistische Beispieldaten, um jedes Diagramm und jeden Filter auszuprobieren. Demo-Einträge sind markiert und lassen sich mit einem Klick entfernen – Ihre eigenen Einträge bleiben unberührt.')}</p><div class="brow">${demo?`<button class="btn danger" data-act="undemo">${Tx(`Remove ${demo} demo entries`,`${demo} Demo-Einträge entfernen`)}</button>`:`<button class="btn" data-act="demo">${Tx('Load demo data','Demodaten laden')}</button>`}</div></div>
  <div class="card"><h3>${Tx('🎨 Appearance','🎨 Darstellung')}</h3><p>${Tx('Choose a theme.','Wählen Sie ein Farbschema.')}</p><div class="seg"><button data-act="settheme" data-t="dark" class="${S.ui.theme!=='light'?'on':''}">${Tx('Dark','Dunkel')}</button><button data-act="settheme" data-t="light" class="${S.ui.theme==='light'?'on':''}">${Tx('Light','Hell')}</button></div><p style="margin-top:14px">${Tx('Language','Sprache')}</p>${langSeg()}</div>
+ ${ST?'':`<div class="card"><h3>${Tx('🧪 Self-test','🧪 Selbsttest')}</h3><p>${Tx('Checks every calculation, chart and the main functions on built-in test data – takes a few seconds. Your own data is not touched.','Prüft alle Berechnungen, Diagramme und die wichtigsten Funktionen mit eingebauten Testdaten – dauert nur wenige Sekunden. Ihre eigenen Daten werden nicht verändert.')}</p><button class="btn" data-act="selftest">${Tx('Run self-test','Selbsttest starten')}</button></div>`}
  <div class="card" style="border-color:rgba(251,113,133,.35)"><h3>${Tx('⚠️ Danger zone','⚠️ Gefahrenbereich')}</h3><p>${Tx('These actions can’t be undone. Export a backup first.','Diese Aktionen lassen sich nicht rückgängig machen. Exportieren Sie vorher eine Sicherung.')}</p><div class="brow"><button class="btn danger" data-act="wipe">${Tx('Delete all entries','Alle Einträge löschen')}</button><button class="btn danger" data-act="reset">${S.sync.on?Tx('Reset this device','Dieses Gerät zurücksetzen'):Tx('Reset everything','Alles zurücksetzen')}</button></div></div>
  </div>`}
 function exportJSON(){S.meta.lastBackup=Date.now();save();download(`hausbudget-backup-${todayStr()}.json`,JSON.stringify({app:'hausbudget',v:2,exported:new Date().toISOString(),categories:S.categories.filter(c=>!c.demo),entries:S.entries.filter(e=>!e.demo),rules:S.rules,accounts:S.accounts,assets:S.assets,loans:S.loans},null,1),'application/json');toast(Tx('Backup exported','Sicherung exportiert'),'ok');render()}
@@ -947,7 +955,7 @@ function renderSync(){const p=$('#syncPill');if(!p)return;const on=S.sync.on&&!!
   p.className='syncpill '+SY.state;p.innerHTML='<i></i>'+t;p.title=SY.err||Tx('Google Drive sync','Google-Drive-Synchronisierung')}
  const g=$('#gd-status');if(g)g.innerHTML=gdStatusHTML();if($('#side-status'))sideStatus()}
 function softRender(){const a=document.activeElement;if($('.ov')||POP||(a&&/^(INPUT|SELECT|TEXTAREA)$/.test(a.tagName)&&a.id!=='search')){SY.pendingRender=true;return}SY.pendingRender=false;render()}
-function renderLock(){const L=$('#lock'),locked=!S.sync.on;document.body.classList.toggle('locked',locked);if(!locked){if(L)L.innerHTML='';return false}
+function renderLock(){const L=$('#lock'),locked=!S.sync.on&&!ST;document.body.classList.toggle('locked',locked);if(!locked){if(L)L.innerHTML='';return false}
  const cid=clientId();let inner;
  if(location.protocol==='file:')inner='<p>'+Tx('Please open the app from its web address.','Bitte öffnen Sie die App über ihre Webadresse.')+'</p>';
  else if(!cid)inner=`<p>${Tx('One-time setup: paste the OAuth Client ID from your Google Cloud project. This box disappears once the Client ID is built into the app.','Einmalige Einrichtung: Fügen Sie die OAuth-Client-ID aus Ihrem Google-Cloud-Projekt ein. Dieses Feld verschwindet, sobald die Client-ID in die App eingebaut ist.')}</p><label class="fl">${Tx('Client ID','Client-ID')}<input id="gd-cid" placeholder="123456789-abc….apps.googleusercontent.com" autocomplete="off" autocapitalize="off" spellcheck="false"></label><button class="btn pri" data-act="gdcid">${Tx('Save Client ID','Client-ID speichern')}</button>`;
@@ -1339,7 +1347,7 @@ document.addEventListener('click',e=>{
   case'heat':HEAT=t.dataset.m;$$('[data-act=heat]').forEach(b=>b.classList.toggle('on',b===t));renderHeat(aggregate(periodMonths()));break;
   case'theme':S.ui.theme=(S.ui.theme||'dark')==='dark'?'light':'dark';save();render();break;
   case'settheme':S.ui.theme=t.dataset.t;save();render();break;
-  case'setlang':LANG=t.dataset.l==='en'?'en':'de';try{localStorage.setItem('hausbudget.lang',LANG)}catch(e){}buildSide();render();break;
+  case'setlang':LANG=t.dataset.l==='en'?'en':'de';if(!ST)try{localStorage.setItem('hausbudget.lang',LANG)}catch(e){}buildSide();render();break;
   case'add':addEntry();break;
   case'fxt':MOBF=!MOBF;render();break;
   case'more':ELIMIT+=200;renderETable();break;
@@ -1356,6 +1364,7 @@ document.addEventListener('click',e=>{
   case'export':exportJSON();break;
   case'import':$('#file').click();break;
   case'csv':exportCSV();break;
+  case'selftest':location.assign('./?selftest=1');break;
   case'demo':loadDemo();break;
   case'undemo':{const n=S.entries.filter(e=>e.demo).length;confirmM(Tx('Remove demo data','Demodaten entfernen'),Tx(`Remove ${n} demo entries? Your own entries stay untouched.`,`${n} Demo-Einträge entfernen? Ihre eigenen Einträge bleiben unberührt.`),Tx('Remove','Entfernen'),()=>{S.entries=S.entries.filter(e=>!e.demo);S.categories=S.categories.filter(c=>!c.demo);save();applyPreset('12m');render()});break}
   case'wipe':confirmM(Tx('Delete all entries','Alle Einträge löschen'),`${Tx(`Delete all ${S.entries.length} entries? Categories are kept.`,`Alle ${S.entries.length} Einträge löschen? Die Kategorien bleiben erhalten.`)}${S.sync.on?Tx(' This deletes them on all your devices and in Google Drive.',' Sie werden auf allen Geräten und in Google Drive gelöscht.'):''}`,Tx('Delete all','Alle löschen'),()=>{S.entries=[];S.wipe=Date.now();save();render()});break;
@@ -1392,8 +1401,14 @@ let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{hideTi
 buildSide();
 if(!F.from||!['custom','years'].includes(F.preset))applyPreset(F.preset==='custom'||F.preset==='years'?'12m':F.preset);
 render();
-initSync();
+if(!ST)initSync();
 window.__app={get S(){return S},render,loadDemo,syncNow,mergeDocs,get SY(){return SY}};
+if(ST){window.__hbst={ST,get S(){return S},get F(){return F},render,
+  load(doc){doc=JSON.parse(JSON.stringify(doc));S=Object.assign(migrate(doc),sanitizeDoc(doc));S.sync=SYNC0();S.ui={theme:'dark',view:'dashboard',filter:null};S.meta.pristine=false;S.meta.lastBackup=Date.now();
+   F={preset:'12m',from:null,to:null,years:[],gran:'month',groups:[],persons:[]};HIDDEN={};EXPANDED=new Set();DRILL=null;YOY='expense';HEAT='row';SEARCH='';QA={date:todayStr(),cat:'',acct:''};rebuildHash();applyPreset('12m');render()},
+  setF(o){Object.assign(F,o);persistUI();render()},setDrill(k){DRILL=k;render()},
+  fn:{parseAmt,parseBankAmt,parseDate,periodHint,fit,trend,mdiff,sanitizeDoc,money,money2,nf1:v=>nf1.format(v),loanSchedule,handleCsv,catMap}};
+ const sc=document.createElement('script');sc.src='selftest.js?v='+ST_VER;sc.onerror=()=>{document.body.insertAdjacentHTML('beforeend','<div class="banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99">'+Tx('The self-test file (selftest.js) is missing next to index.html.','Die Selbsttest-Datei (selftest.js) fehlt neben der index.html.')+' <a class="btn" href="./">'+Tx('Back','Zurück')+'</a></div>')};document.head.appendChild(sc)}
 })();
 </script>
 </body>

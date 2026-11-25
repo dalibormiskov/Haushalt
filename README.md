@@ -12,6 +12,13 @@ A private household-finance app that runs in the browser (Mac, iPhone, any devic
 - Works offline; changes sync when you're back online
 - Can be added to the iPhone home screen like an app
 
+## Self-test
+
+*Settings → Self-test → Run self-test* checks the app on built-in test data in a few seconds: every total, average, trend and comparison, the charts (bar heights, lines, tooltips and axis labels are read back and compared with the numbers), net worth, account balances, the full loan repayment plan to the cent, bank import, backup/restore, CSV export, language switch and basic security. The expected values were calculated independently beforehand (exact decimal maths), not by the app itself.
+
+- It runs only on a device where the app is already unlocked, uses its own storage slot and a fixed date (15.11.2026), sends nothing to the internet and does not touch your own data.
+- The test file is `selftest.js`. Upload it together with `index.html`.
+
 ## Where is my data?
 
 - **On each device** (browser storage), so the app works offline.
